@@ -16,7 +16,7 @@ public class StudentRegistrationFormTest extends TestBase{
     String yearBirth = "1988";
     String subject = "Math";
     String hobbie = "Sports";
-    String pictureDirectory = "src/test/resources/1.jpg";
+    String pictureDirectory = "1.jpg";
     String adress = "Moscow, lenina st 25";
     String state = "Uttar Pradesh";
     String city = "Agra";

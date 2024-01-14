@@ -3,7 +3,6 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
-import pages.components.PictureUploader;
 import pages.components.RegistrationResultsModal;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -12,25 +11,23 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
-    PictureUploader pictureUploader = new PictureUploader();
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
 
     private final String tittleText = "Student Registration Form";
-    private SelenideElement firstNameInput =  $("#firstName"),
-     lastNameInput = $("#lastName"),
-     userEmailInput = $("#userEmail"),
-     genderRadioButtons = $("#genterWrapper"),
-     userNumberInput = $("#userNumber"),
-     userBDayInput = $("#dateOfBirthInput"),
-     subjectsInput = $("#subjectsInput"),
-     hobbiesCheckBoxes = $("#hobbiesWrapper"),
-     uploadPictureButton = $("#uploadPicture"),
-     adressField = $("#currentAddress"),
-     stateList =  $("#state"),
-     cityList = $("#city"),
-     submitButton =  $("#submit"),
-     closeButton =  $("#closeLargeModal");
-
+    private SelenideElement firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName"),
+            userEmailInput = $("#userEmail"),
+            genderRadioButtons = $("#genterWrapper"),
+            userNumberInput = $("#userNumber"),
+            userBDayInput = $("#dateOfBirthInput"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesCheckBoxes = $("#hobbiesWrapper"),
+            uploadPictureButton = $("#uploadPicture"),
+            adressField = $("#currentAddress"),
+            stateList = $("#state"),
+            cityList = $("#city"),
+            submitButton = $("#submit"),
+            closeButton = $("#closeLargeModal");
 
 
     public RegistrationPage openPage() {
@@ -83,7 +80,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage uploadPicture(String value) {
-        pictureUploader.uploadPicture(uploadPictureButton, value);
+        uploadPictureButton.uploadFromClasspath(value);
         return this;
     }
 
