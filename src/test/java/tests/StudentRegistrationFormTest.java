@@ -30,6 +30,7 @@ public class StudentRegistrationFormTest extends TestBase {
 
 
     @Test
+    @Tag("demoqa")
     void fullSuccessfulRegistration() {
         registrationPage.openPage().
                 setFirstName(firstName).
@@ -60,7 +61,6 @@ public class StudentRegistrationFormTest extends TestBase {
     }
 
     @Test
-    @Tag("demoqa")
     void minimalSuccessfulRegistration() {
         registrationPage.openPage().
                 setFirstName(firstName).
