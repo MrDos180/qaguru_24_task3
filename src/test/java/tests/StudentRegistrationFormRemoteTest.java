@@ -8,7 +8,7 @@ import utils.RandomUtils;
 
 import static utils.RandomUtils.*;
 
-public class StudentRegistrationFormTest extends TestBase {
+public class StudentRegistrationFormRemoteTest extends TestBaseRemote {
     RegistrationPage registrationPage = new RegistrationPage();
     static Faker faker = new Faker();
     RandomUtils randomUtils = new RandomUtils();
@@ -30,6 +30,7 @@ public class StudentRegistrationFormTest extends TestBase {
 
 
     @Test
+    @Tag("demoqa")
     void fullSuccessfulRegistration() {
         registrationPage.openPage().
                 setFirstName(firstName).
