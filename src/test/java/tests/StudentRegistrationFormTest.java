@@ -1,6 +1,7 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.RandomUtils;
@@ -59,6 +60,7 @@ public class StudentRegistrationFormTest extends TestBase {
     }
 
     @Test
+    @Tag("demoqa")
     void minimalSuccessfulRegistration() {
         registrationPage.openPage().
                 setFirstName(firstName).
