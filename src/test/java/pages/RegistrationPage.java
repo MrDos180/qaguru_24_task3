@@ -30,7 +30,7 @@ public class RegistrationPage {
             submitButton = $("#submit"),
             closeButton = $("#closeLargeModal");
 
-
+    @Step("Открываем страницу")
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(Condition.text(tittleText));
