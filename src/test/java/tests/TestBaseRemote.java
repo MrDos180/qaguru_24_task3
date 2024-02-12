@@ -23,6 +23,7 @@ public class TestBaseRemote {
         Configuration.baseUrl = projectConfig.webUrl();
         Configuration.browserSize = driverConfig.browserSize();
         Configuration.browser = driverConfig.browserName();
+        Configuration.browserVersion = driverConfig.browserVersion();
         Configuration.timeout = 10000;
 //        Configuration.holdBrowserOpen = true;
         Configuration.remote = driverConfig.remoteUrl();
