@@ -16,7 +16,7 @@ import java.util.Map;
 public class TestBaseRemote {
     @BeforeAll
     static void beforeAll() {
-        System.setProperty("environment", System.getProperty("environment", "stage"));
+        System.setProperty("environment","stage");
         ProjectConfig projectConfig = ConfigFactory.create(ProjectConfig.class);
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
