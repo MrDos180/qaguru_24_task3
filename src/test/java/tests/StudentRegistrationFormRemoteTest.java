@@ -35,6 +35,7 @@ public class StudentRegistrationFormRemoteTest extends TestBaseRemote {
     @Test
     @Tag("demoqa")
     void fullSuccessfulRegistration() {
+        System.setProperty("environment", System.getProperty("environment", "stage"));
         registrationPage.openPage().
                 setFirstName(config.firstName()).
                 setLastName(config.lastName()).

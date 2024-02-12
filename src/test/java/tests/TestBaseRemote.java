@@ -15,14 +15,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 
 public class TestBaseRemote {
-    @BeforeEach
-    void setEnvironment() {
-        System.setProperty("environment", System.getProperty("environment", "stage"));
-    }
+
 
 
     @BeforeAll
     static void beforeAll() {
+
 
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
