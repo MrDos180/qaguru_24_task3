@@ -9,18 +9,24 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
 public class TestBaseRemote {
+    @BeforeEach
+    void setEnvironment() {
+        System.setProperty("environment", System.getProperty("environment", "stage"));
+    }
+
+
     @BeforeAll
     static void beforeAll() {
-        System.setProperty("environment", System.getProperty("environment", "stage"));
-        ProjectConfig projectConfig = ConfigFactory.create(ProjectConfig.class);
+
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
-        Configuration.baseUrl = projectConfig.webUrl();
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = driverConfig.browserSize();
         Configuration.browser = driverConfig.browserName();
         Configuration.browserVersion = driverConfig.browserVersion();
