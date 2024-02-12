@@ -1,6 +1,8 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import config.ProjectConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
@@ -9,6 +11,7 @@ import utils.RandomUtils;
 import static utils.RandomUtils.*;
 
 public class StudentRegistrationFormRemoteTest extends TestBaseRemote {
+    static ProjectConfig config = ConfigFactory.create(ProjectConfig.class,System.getProperties());
     RegistrationPage registrationPage = new RegistrationPage();
     static Faker faker = new Faker();
     RandomUtils randomUtils = new RandomUtils();
@@ -33,8 +36,8 @@ public class StudentRegistrationFormRemoteTest extends TestBaseRemote {
     @Tag("demoqa")
     void fullSuccessfulRegistration() {
         registrationPage.openPage().
-                setFirstName(firstName).
-                setLastName(lastName).
+                setFirstName(config.firstName()).
+                setLastName(config.lastName()).
                 setEmail(email).
                 setGender(gender).
                 setUserNumber(number).
@@ -47,7 +50,7 @@ public class StudentRegistrationFormRemoteTest extends TestBaseRemote {
                 setCity(city).
                 clickSubmit().
                 verifyResultsModalAppears().
-                verifyResult("Student Name", firstName + " " + lastName).
+                verifyResult("Student Name", config.firstName() + " " + config.lastName()).
                 verifyResult("Student Email", email).
                 verifyResult("Gender", gender).
                 verifyResult("Mobile", number).
@@ -58,6 +61,16 @@ public class StudentRegistrationFormRemoteTest extends TestBaseRemote {
                 verifyResult("Address", adress).
                 verifyResult("State and City", state + " " + city).
                 clickClose();
+        System.out.println(config.firstName());
+        System.out.println(config.lastName());
+    }
+
+    @Test
+    @Tag("test")
+    void testTest() {
+
+        System.out.println(config.firstName());
+        System.out.println(config.lastName());
     }
 
     @Test
