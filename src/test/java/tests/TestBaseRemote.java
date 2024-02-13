@@ -17,13 +17,11 @@ import java.util.Map;
 public class TestBaseRemote {
 
 
-
     @BeforeAll
     static void beforeAll() {
 
-
+        System.setProperty("environment", System.getProperty("environment", "stage"));
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
-
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = driverConfig.browserSize();
         Configuration.browser = driverConfig.browserName();
@@ -31,14 +29,12 @@ public class TestBaseRemote {
         Configuration.timeout = 10000;
 //        Configuration.holdBrowserOpen = true;
         Configuration.remote = driverConfig.remoteUrl();
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
