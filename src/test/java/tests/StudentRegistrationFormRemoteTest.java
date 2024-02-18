@@ -61,16 +61,6 @@ public class StudentRegistrationFormRemoteTest extends TestBaseRemote {
                 verifyResult("Address", adress).
                 verifyResult("State and City", state + " " + city).
                 clickClose();
-        System.out.println(config.firstName());
-        System.out.println(config.lastName());
-    }
-
-    @Test
-    @Tag("test")
-    void testTest() {
-
-        System.out.println(config.firstName());
-        System.out.println(config.lastName());
     }
 
     @Test

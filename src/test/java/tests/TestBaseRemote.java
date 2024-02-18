@@ -3,7 +3,6 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.DriverConfig;
-import config.ProjectConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
@@ -19,8 +18,6 @@ public class TestBaseRemote {
 
     @BeforeAll
     static void beforeAll() {
-
-        System.setProperty("environment", System.getProperty("environment", "stage"));
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = driverConfig.browserSize();
@@ -35,6 +32,11 @@ public class TestBaseRemote {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+    }
+
+    @BeforeEach
+    void beforeEach() {
+        System.setProperty("environment", System.getProperty("environment", "stage"));
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
@@ -44,7 +46,6 @@ public class TestBaseRemote {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-
     }
 
 }
