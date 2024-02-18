@@ -32,12 +32,13 @@ public class TestBaseRemote {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
     }
 
     @BeforeEach
     void beforeEach() {
         System.setProperty("environment", System.getProperty("environment", "stage"));
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
