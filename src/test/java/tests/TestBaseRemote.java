@@ -18,7 +18,7 @@ public class TestBaseRemote {
 
     @BeforeAll
     static void beforeAll() {
-        DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
+        DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class, System.getProperties());
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = driverConfig.browserSize();
         Configuration.browser = driverConfig.browserName();
