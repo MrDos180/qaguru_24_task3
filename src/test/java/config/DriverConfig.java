@@ -9,12 +9,9 @@ public interface DriverConfig extends Config{
     @DefaultValue("chrome")
     String browserName();
     @Config.Key("browser.version")
-    @DefaultValue("100.0")
     String browserVersion();
     @Config.Key("browser.size")
-    @DefaultValue("1280x720")
     String browserSize();
     @Config.Key("remote.url")
-    @DefaultValue("https://user1:1234@selenoid.autotests.cloud/wd/hub")
     String remoteUrl();
 }
