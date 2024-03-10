@@ -12,6 +12,7 @@ public class RandomUtils {
         return states[i];
     }
 
+
     public String getStateByCity(String value) {
         HashMap<String, String> cityAndState = new HashMap<>();
         cityAndState.put("Delhi", "NCR");
